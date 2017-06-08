@@ -172,8 +172,8 @@ h1, h2, h3, h4, h5, h6 {
 header {
   background-image: image_url('header-bg.jpg');
   background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
+  background-attachment: fixed;
+  background-position: center;
   @include background-cover;
   text-align: center;
   color: white;
@@ -541,6 +541,7 @@ section#contact {
   background-color: $gray-darker;
   background-image: image-url('map-image.png');
   background-position: center;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   .section-heading {
     color: white;
