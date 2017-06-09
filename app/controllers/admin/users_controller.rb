@@ -2,6 +2,8 @@ module Admin
   class UsersController < Admin::ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+    layout 'admin'
+
     # GET /admin/users
     # GET /admin/users.json
     def index
