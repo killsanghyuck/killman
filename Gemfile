@@ -38,7 +38,6 @@ gem 'mysql2'
 gem 'slim'
 gem 'simple_form'
 
-gem 'rails-admin'
 gem 'devise'
 gem 'rolify'
 gem 'authority'
