@@ -4,8 +4,30 @@ html
     title gillman!!!
     = csrf_meta_tags
 
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'
   body
+    nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+      .container
+        .navbar-header.page-scroll
+          button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+            span.sr-only Toggle navigation
+            | Menu
+            i.fa.fa-bars
+          = link_to '길맨 Admin', admin_root_path, class: 'navbar-brand page-scroll'
+        /! Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.hidden
+              a href="#page-top"
+            li
+              a.page-scroll href="#team"  회원
+            li
+              a.page-scroll href="#contact"  게시물
+            li
+              - if user_signed_in?
+                = link_to "로그아웃", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"}
+              - else
+                = link_to "로그인", new_user_session_path
     = yield

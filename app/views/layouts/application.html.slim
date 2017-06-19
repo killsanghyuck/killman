@@ -8,4 +8,32 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'
   body
+    nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+      .container
+        .navbar-header.page-scroll
+          button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+            span.sr-only Toggle navigation
+            | Menu
+            i.fa.fa-bars
+          a.navbar-brand.page-scroll href="#page-top"  길맨
+        /! Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.hidden
+              a href="#page-top"
+            li
+              a.page-scroll href="#services"  Services
+            li
+              a.page-scroll href="#portfolio"  Portfolio
+            li
+              a.page-scroll href="#about"  About
+            li
+              a.page-scroll href="#team"  Team
+            li
+              a.page-scroll href="#contact"  Contact
+            li
+              - if user_signed_in?
+                = link_to "로그아웃", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"}
+              - else
+                = link_to "로그인", new_user_session_path
     = yield
