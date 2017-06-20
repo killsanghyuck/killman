@@ -21,13 +21,15 @@ html
           ul.nav.navbar-nav.navbar-right
             li.hidden
               a href="#page-top"
+            - if current_user.master?
+              li
+                =link_to '회원 관리', admin_users_path
             li
-              a.page-scroll href="#team"  회원
-            li
-              a.page-scroll href="#contact"  게시물
+              =link_to '게시물', admin_posts_path
             li
               - if user_signed_in?
                 = link_to "로그아웃", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"}
               - else
                 = link_to "로그인", new_user_session_path
-    = yield
+    .container[style='padding-top : 50px; padding-bottom : 50px;']
+      = yield

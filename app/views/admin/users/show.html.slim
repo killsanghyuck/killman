@@ -1,0 +1,11 @@
+p#notice= notice
+p
+  strong Title:
+  = @user.email
+p
+  strong Content:
+  = @user.role
+
+= link_to 'Edit', edit_admin_user_path(@user)
+| \
+= link_to 'Back', admin_users_path

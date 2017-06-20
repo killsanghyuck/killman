@@ -1,0 +1,9 @@
+= simple_form_for(@user, url: admin_user_path(@user)) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email
+    = f.input :role, collection: User.roles, value_method: :first
+
+  .form-actions
+    = f.button :submit

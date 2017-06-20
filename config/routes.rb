@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   namespace :admin do
-    root "users#index"
+    root "posts#index"
     resources :users
     resources :posts
     end
