@@ -5,7 +5,9 @@ class Admin::PostsController < Admin::ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    posts = Post.all
+    @posts = posts.where('user_id in (?)', current_user.id) if current_user.admin?
+    @posts = posts
   end
 
   # GET /posts/1
