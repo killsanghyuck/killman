@@ -1,6 +1,14 @@
-h1 Editing Post
+h1 Editing User
 
-= render 'form', user: @user
+= simple_form_for(@user, url: admin_user_path(@user)) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email
+    = f.input :role, collection: User.roles, value_method: :first
+
+  .form-actions
+    = f.button :submit
 
 = link_to 'Show', admin_user_path(@user)
 = link_to 'Back', admin_users_path
