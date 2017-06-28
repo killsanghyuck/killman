@@ -28,8 +28,6 @@ html
             li
               a.page-scroll href="#about"  About
             li
-              a.page-scroll href="#team"  Team
-            li
               a.page-scroll href="#contact"  Contact
             li
               - if user_signed_in?
@@ -37,3 +35,26 @@ html
               - else
                 = link_to "로그인", new_user_session_path
     = yield
+
+    footer
+      .container
+        .row
+          .col-md-4
+            span.copyright Copyright &copy; Your Website 2016
+          .col-md-4
+            ul.list-inline.social-buttons
+              li
+                a href="#"
+                  i.fa.fa-twitter
+              li
+                a href="#"
+                  i.fa.fa-facebook
+              li
+                a href="#"
+                  i.fa.fa-linkedin
+          .col-md-4
+            ul.list-inline.quicklinks
+              li
+                a href="#"  Privacy Policy
+              li
+                a href="#"  Terms of Use
