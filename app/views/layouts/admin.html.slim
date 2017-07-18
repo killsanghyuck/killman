@@ -21,11 +21,12 @@ html
           ul.nav.navbar-nav.navbar-right
             li.hidden
               a href="#page-top"
-            - if current_user.master?
+            - unless current_user.nil?
+              - if current_user.master?
+                li
+                  =link_to '회원 관리', admin_users_path
               li
-                =link_to '회원 관리', admin_users_path
-            li
-              =link_to '게시물', admin_posts_path
+                =link_to '게시물', admin_posts_path
             li
               - if user_signed_in?
                 = link_to "로그아웃", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"}
