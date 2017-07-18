@@ -6,7 +6,8 @@
     = f.input :content
     - unless current_user.nil?
       = f.hidden_field :user_id, value: current_user.id
-
+    - else
+      = f.hidden_field :user_id, value: 1
 
   .form-actions
     = f.button :submit
