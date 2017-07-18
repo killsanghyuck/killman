@@ -4,7 +4,8 @@
   .form-inputs
     = f.input :title
     = f.input :content
-    = f.hidden_field :user_id, value: current_user.id
+    - unless current_user.nil?
+      = f.hidden_field :user_id, value: current_user.id
 
 
   .form-actions
