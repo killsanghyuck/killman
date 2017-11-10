@@ -1,0 +1,42 @@
+p#notice= notice
+h1 Picks
+= form_tag import_picks_path, class: 'pull-right', style: 'margin: 0px 8px 18px 0', multipart: true do
+  = submit_tag '추가', class: 'btn btn-sm pull-right btn-primary'
+  = file_field_tag :file, class: 'pull-right'
+table.table
+  thead
+    tr
+      th id
+      th 생성
+      th 업데이트
+      th 입차
+      th 출차
+      th 상태
+      th id
+      th 시간권
+      th 취소시각
+      th 차번호
+      th 완료시각
+      th 회사시각
+      th 취소사유
+      th 도착예정시각
+  tbody
+    - @picks.each do |pick|
+      tr
+        td =pick.id
+        td =pick.created_at
+        td =pick.updated_at
+        td =pick.enter_time
+        td =pick.exit_time
+        td =pick.pick_state
+        td =pick.reservation_id
+        td =pick.time_code
+        td =pick.cancel_time
+        td =pick.car_number
+        td =pick.complete_time
+        td =pick.free_time
+        td =pick.cancel_reason
+        td =pick.arrive_time
+
+br
+= link_to 'New Pick', new_pick_path

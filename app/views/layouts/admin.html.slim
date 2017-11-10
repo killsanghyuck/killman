@@ -22,15 +22,15 @@ html
             li.hidden
               a href="#page-top"
             - unless current_user.nil?
-              - if current_user.master?
-                li
-                  =link_to '회원 관리', admin_users_path
               li
                 =link_to '게시물', admin_posts_path
-            li
-              - if user_signed_in?
+            - if user_signed_in?
+              li
+                = link_to "#{current_user.email}님 안녕하세요"
+              li
                 = link_to "로그아웃", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"}
-              - else
-                = link_to "로그인", new_user_session_path
+            - else
+            li
+              = link_to "로그인", new_user_session_path
     .container[style='padding-top : 50px; padding-bottom : 50px;']
       = yield

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :picks do
+    collection do
+      post 'import'
+    end
+  end
+  namespace :api do
+    resources :posts
+  end
   resources :posts
   devise_for :users
   root 'welcome#index'
@@ -7,7 +15,11 @@ Rails.application.routes.draw do
     root "posts#index"
     resources :users
     resources :posts
-    end
+  end
+
+  namespace :api do
+    resource :posts
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
