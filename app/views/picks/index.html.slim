@@ -1,5 +1,13 @@
 p#notice= notice
 h1 Picks
+table.table-bordered
+  thead
+    tr
+      th 연동현장
+  tbody
+    tr
+      td =@lpr.size
+
 = form_tag import_picks_path, class: 'pull-right', style: 'margin: 0px 8px 18px 0', multipart: true do
   = submit_tag '추가', class: 'btn btn-sm pull-right btn-primary'
   = file_field_tag :file, class: 'pull-right'

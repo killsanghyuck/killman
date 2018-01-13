@@ -4,9 +4,6 @@ Rails.application.routes.draw do
       post 'import'
     end
   end
-  namespace :api do
-    resources :posts
-  end
   resources :posts
   devise_for :users
   root 'welcome#index'

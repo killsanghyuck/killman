@@ -6,6 +6,7 @@ class PicksController < ApplicationController
   # GET /picks.json
   def index
     @picks = Pick.all
+    @lpr = Pick.where('pick_state = 4 and enter_time is not null')
   end
 
   # GET /picks/1
