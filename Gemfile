@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'mysql2'
+gem 'mysql2', '>= 0.4.6'
 
 gem 'slim'
 gem 'simple_form'
@@ -41,6 +41,9 @@ gem 'simple_form'
 gem 'devise'
 gem 'rolify'
 gem 'authority'
+
+gem 'axlsx'
+gem 'axlsx_rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   namespace :admin do
     root "posts#index"
     resources :users
-    resources :posts
+    resources :posts do
+      collection do
+        get 'chul_list'
+      end
+    end
   end
 
   namespace :api do

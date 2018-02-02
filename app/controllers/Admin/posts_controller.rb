@@ -67,6 +67,26 @@ module Admin
       end
     end
 
+    def chul_list
+      chul_list = []
+      for i in 1..31
+        s = rand(1..98)
+        hash = {:date => "2018-01-#{i < 10 ? '0' + i.to_s : i}", :time => "09:#{rand(35..59)}:#{s < 10 ? '0' + s.to_s : s}", :mode => '출근'}
+        chul_list.push(hash)
+        m = rand(1..59)
+        s = rand(1..98)
+        hash = {:date => "2018-01-#{i < 10 ? '0' + i.to_s : i}", :time => "19:#{m < 10 ? '0' + m.to_s : m}:#{s < 10 ? '0' + s.to_s : s}", :mode => '퇴근'}
+        chul_list.push(hash)
+      end
+
+      @chul_lists = chul_list
+      respond_to do |format|
+        format.xlsx do
+          render xlsx: 'chul_list', layout: false, filename: 'chul_list.xlsx'
+        end
+      end
+    end
+
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

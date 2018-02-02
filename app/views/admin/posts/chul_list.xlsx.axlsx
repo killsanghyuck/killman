@@ -1,0 +1,24 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "posts") do |sheet|
+  sheet.add_row [
+    '',
+    '발생일자',
+    '발생시각',
+    '단말기ID',
+    '이름',
+    '구분',
+    '모드'
+  ]
+
+  @chul_lists.each do |chul|
+    sheet.add_row [
+        '',
+        chul[:date],
+        chul[:time],
+        '0001',
+        '길상혁',
+        '일반',
+        chul[:mode]
+    ], types: [:string, :string, :string, :string, :string, :string]
+  end
+end
