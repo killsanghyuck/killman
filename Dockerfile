@@ -2,7 +2,7 @@ FROM ubuntu
 MAINTAINER kill5038(kill5038@gmail.com)
 
 # Run upgrades
-RUN apt-get update
+RUN apt-get update && apt-get install -y apt-transport-https
 
 # Install basic packages
 RUN apt-get -qq -y install git curl build-essential openssl libssl-dev python-software-properties python g++ make
@@ -29,5 +29,5 @@ RUN bundle install --without development test
 # Run charmbitHair
 ENV SECRET_KEY_BASE wpqkfehlfkwpqkfassaddasfat2523k5jh2jk24jl52
 ENV RAILS_ENV production
-EXPOSE 80
+EXPOSE 5959
 CMD foreman start -f Procfile

@@ -23,7 +23,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  host: gill-man.cppgz6vey6fn.ap-northeast-1.rds.amazonaws.com
+  username: kill5038
+  password: dl926516
+  database: gill_man
 
 production:
   <<: *default
