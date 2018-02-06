@@ -1,1 +1,2 @@
-web: bundle exec rails server -p 5959
+web: bundle exec unicorn -c config/unicorn.rb
+nginx: /usr/sbin/nginx -c /etc/nginx/nginx.conf
