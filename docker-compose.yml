@@ -4,7 +4,7 @@ services:
     build: .
     command: bundle exec puma -C config/puma.rb
     volumes:
-      - /var/www/killman
+      - /usr/src/killman
     expose:
       - "3000"
   web:
