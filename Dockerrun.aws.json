@@ -1,0 +1,19 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "kill5038/kill-man:0.1",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "3000"
+    }
+  ],
+  "Volumes": [
+    {
+      "HostDirectory": "/var/www",
+      "ContainerDirectory": "/var/www"
+    }
+  ],
+  "Logging": "/var/log/nginx"
+}
