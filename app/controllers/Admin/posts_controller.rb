@@ -71,18 +71,18 @@ module Admin
       chul_list = []
       for i in 1..31
         s = rand(1..98)
-        hash = {:date => "2019-02-#{i < 10 ? '0' + i.to_s : i}", :time => "09:#{rand(50..59)}:#{s < 10 ? '0' + s.to_s : s}", :mode => '출근'}
+        hash = {:date => "2019-03-#{i < 10 ? '0' + i.to_s : i}", :time => "09:#{rand(50..59)}:#{s < 10 ? '0' + s.to_s : s}", :mode => '출근'}
         chul_list.push(hash)
         m = rand(1..20)
         s = rand(1..98)
-        hash = {:date => "2019-02-#{i < 10 ? '0' + i.to_s : i}", :time => "19:#{m < 10 ? '0' + m.to_s : m}:#{s < 10 ? '0' + s.to_s : s}", :mode => '퇴근'}
+        hash = {:date => "2019-03-#{i < 10 ? '0' + i.to_s : i}", :time => "19:#{m < 10 ? '0' + m.to_s : m}:#{s < 10 ? '0' + s.to_s : s}", :mode => '퇴근'}
         chul_list.push(hash)
       end
 
       @chul_lists = chul_list
       respond_to do |format|
         format.xlsx do
-          render xlsx: 'chul_list', layout: false, filename: 'chul_list.xlsx'
+          render xlsx: 'chul_list', layout: false, filename: 'chl_list.xlsx'
         end
       end
     end
