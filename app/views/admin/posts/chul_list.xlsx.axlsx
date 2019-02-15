@@ -1,24 +1,28 @@
 wb = xlsx_package.workbook
+wb.use_autowidth = true
+
+title = wb.styles.add_style(:bg_color => 'DDEBF7', :sz=>10, :alignment => {:vertical=>:center, :horizontal=>:center, :wrap_text=>true} )
+dan_id = wb.styles.add_style(:bg_color => 'DDEBF7', :sz=>10, :b=>true, :alignment => {:vertical=>:center, :horizontal=>:center, :wrap_text=>true} )
+content = wb.styles.add_style(:sz=>10)
 wb.add_worksheet(name: "posts") do |sheet|
   sheet.add_row [
-    '',
     '발생일자',
     '발생시각',
     '단말기ID',
     '이름',
     '구분',
     '모드'
-  ]
+  ], :style => [title, title, dan_id, title, title, title]
 
   @chul_lists.each do |chul|
     sheet.add_row [
-        '',
         chul[:date],
         chul[:time],
         '0001',
         '길상혁',
         '일반',
         chul[:mode]
-    ], types: [:string, :string, :string, :string, :string, :string]
+    ], types: [:string, :string, :string, :string, :string, :string], :style => content
   end
+  sheet.column_widths 13.6,13.6,8.8,8.8,8.8,8.8
 end
