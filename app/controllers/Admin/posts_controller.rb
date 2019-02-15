@@ -82,7 +82,7 @@ module Admin
       @chul_lists = chul_list
       respond_to do |format|
         format.xlsx do
-          render xlsx: 'chul_list', layout: false, filename: 'chul_list.xlsx'
+          render xlsx: 'chul_list', layout: false, filename: '길상혁.xlsx'
         end
       end
     end
