@@ -13,9 +13,9 @@ default: &default
 
 development:
   <<: *default
-  host: gill-man.cppgz6vey6fn.ap-northeast-1.rds.amazonaws.com
-  username: kill5038
-  password: dl926516
+  host: localhost
+  username: root
+  password:
   database: gill_man
 
 # Warning: The database defined as "test" will be erased and
